@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from '../../redux/contacts/selectors';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/operations';
 
@@ -11,8 +11,12 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
+  // const dispatch = useDispatch();
+  // const contacts = useSelector(getContacts);
+
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
+  console.log(contacts);
 
   const handleNameChange = event => {
     setName(event.target.value);
