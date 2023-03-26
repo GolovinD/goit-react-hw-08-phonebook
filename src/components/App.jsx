@@ -1,8 +1,3 @@
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
-import Section from './Section/Section';
-
 import SharedLayout from './SharedLayout/SharedLayout';
 // import Home from '../pages/Home/Home';
 // import Register from '../pages/Register/Register';
@@ -11,11 +6,11 @@ import SharedLayout from './SharedLayout/SharedLayout';
 
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { fetchContacts } from '../redux/operations';
+import { useDispatch } from 'react-redux';
+// import { getContacts } from 'redux/selectors';
+// import { fetchContacts } from '../redux/operations';
 
-import { useAuth } from '../hooks/useAuth';
+// import { useAuth } from '../hooks/useAuth';
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -35,7 +30,7 @@ function App() {
   // }, [dispatch]);
 
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  // const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
