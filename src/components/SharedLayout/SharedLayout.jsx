@@ -3,6 +3,7 @@ import AppBar from '../AppBar/AppBar';
 import { Suspense } from 'react';
 
 const SharedLayout = () => {
+  console.log('SharedLayout');
   return (
     <div>
       <AppBar />

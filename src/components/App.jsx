@@ -4,13 +4,14 @@ import SharedLayout from './SharedLayout/SharedLayout';
 // import Login from '../pages/Login/Login';
 // import Contacts from '../pages/Contacts/Contacts';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { getContacts } from 'redux/selectors';
 // import { fetchContacts } from '../redux/operations';
 
 // import { useAuth } from '../hooks/useAuth';
+
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -35,6 +36,8 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  console.log('app');
 
   return (
     <div>
@@ -63,7 +66,7 @@ function App() {
               <PrivateRoute redirectTo="/login" component={<Contacts />} />
             }
           />
-          {/* <Route path="*" element={<Navigation to="/" />} /> */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </div>
