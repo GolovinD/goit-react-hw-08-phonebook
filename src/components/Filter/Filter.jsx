@@ -1,22 +1,20 @@
 import React from 'react';
-
-import { useDispatch } from 'react-redux';
-import { filterData } from '../../redux/filterSlice';
-import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilter } from 'redux/contacts/selectors';
+import { filterData } from 'redux/filter/filterSlice';
 
 import css from './Filter.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   const onFilter = event => {
     dispatch(filterData(event.currentTarget.value));
   };
 
   return (
-    <div>
+    <div className={css.box}>
       <label className={css.label}>
         <span className={css.labelName}>Find contacts by name</span>
 

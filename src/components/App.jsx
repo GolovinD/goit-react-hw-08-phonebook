@@ -1,17 +1,7 @@
 import SharedLayout from './SharedLayout/SharedLayout';
-// import Home from '../pages/Home/Home';
-// import Register from '../pages/Register/Register';
-// import Login from '../pages/Login/Login';
-// import Contacts from '../pages/Contacts/Contacts';
-
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import { getContacts } from 'redux/selectors';
-// import { fetchContacts } from '../redux/operations';
-
-// import { useAuth } from '../hooks/useAuth';
-
 import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -23,21 +13,11 @@ const Login = lazy(() => import('../pages/Login/Login'));
 const Register = lazy(() => import('../pages/Register/Register'));
 
 function App() {
-  // const { items, isLoading, error } = useSelector(getContacts);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-
   const dispatch = useDispatch();
-  // const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-
-  console.log('app');
 
   return (
     <div>
@@ -73,15 +53,3 @@ function App() {
 }
 
 export default App;
-
-// <Section title="Phonebook">
-//         <ContactForm />
-//       </Section>
-
-//       <Section title="Contact">
-//         <Filter />
-//         {isLoading && <p>Loading contacts...</p>}
-//         {error && <p>{error}</p>}
-//         {items.length > 0 && <ContactList />}
-//         {/* {isLoading && !error && <b>Loading contacts...</b>} */}
-//       </Section>

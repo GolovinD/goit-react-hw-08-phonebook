@@ -11,9 +11,6 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  // const dispatch = useDispatch();
-  // const contacts = useSelector(getContacts);
-
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   console.log(contacts);
@@ -50,7 +47,7 @@ const ContactForm = () => {
 
       const newContact = {
         name,
-        phone,
+        number,
       };
 
       console.log(newContact);

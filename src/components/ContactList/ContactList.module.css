@@ -1,3 +1,11 @@
 .contacts {
   text-align: center;
 }
+
+.form {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  text-align: center;
+}
