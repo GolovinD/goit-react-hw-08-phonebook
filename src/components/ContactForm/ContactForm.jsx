@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/selectors';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts/operations';
 
 import css from './ContactForm.module.css';
 
@@ -19,7 +19,9 @@ const ContactForm = () => {
   console.log(contacts);
 
   const handleNameChange = event => {
+    console.log(event.target.value);
     setName(event.target.value);
+    console.log(name);
   };
 
   const handleNumberChange = event => {
@@ -29,14 +31,16 @@ const ContactForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     addContacts(name, number);
+    console.log(name);
 
     if (name === '' || number === '') {
       return;
     }
 
     function addContacts(name, phone) {
+      console.log(name);
       if (
-        contacts.items.find(
+        contacts.find(
           contact => contact.name.toLowerCase() === name.toLowerCase()
         )
       ) {
@@ -48,6 +52,8 @@ const ContactForm = () => {
         name,
         phone,
       };
+
+      console.log(newContact);
 
       dispatch(addContact(newContact));
     }
